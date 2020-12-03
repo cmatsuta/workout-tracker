@@ -4,7 +4,8 @@ const mongoose = require("mongoose");
 
 const PORT = process.env.PORT || 3000;
 
-const workout = require("./workoutModel.js");
+// const db = require("./models");
+
 const app = express();
 
 app.use(logger("dev"));
@@ -25,6 +26,12 @@ app.post("/submit", ({body}, res) => {
       res.json(err);
     });
 });
+
+// Routes
+// =============================================================
+// const htmlRoutes = require("./routes/htmlRoutes.js") 
+// htmlRoutes(app);
+require("./routes/htmlRoutes.js")(app);
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
